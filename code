@@ -1,0 +1,156 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+class bank
+{
+  char name[30];
+  char accname[30];
+  char type[20];
+  int ibalance;
+  int dep;
+  int with;
+	public: void intro();
+		void menu();
+		void getinfo();
+		void deposit();
+		void withdraw();
+		void info();
+		void check();
+		bank()
+		{ibalance=0;}
+};
+void bank::menu()
+{
+	int ch;
+	cout<<"\tchoose the required option\n";
+	cout<<"\t1.Create a new account \n";
+	cout<<"\t2.Deposite your money\n";
+	cout<<"\t3.Check your balance\n";
+	cout<<"\t4.Withdraw amount\n";
+	cout<<"\t5.Your account information\n";
+	cout<<"\t6.Exit\n";
+	cout<<"\n\tEnter your choice ";
+	cin>>ch;
+	   switch(ch)
+		  {
+			case 1:getinfo();
+			break;
+			case 2:deposit();
+			break;
+			case 3:check();
+			break;
+			case 4:withdraw();
+			break;
+			case 5:info();
+			break;
+			case 6:clrscr();
+			       cout<<"\n\n\tThanks for using bank managemnt system";
+			       break;
+			default:cout<<"\n Invalid Input to try again please press ENTER \n";
+				getch();
+				clrscr();
+				menu();
+		   }
+}
+void bank::getinfo()
+{
+	int go;
+	cout<<"\t\t Enter name:";
+	cin>>name;
+	cout<<"\t\tEnter account name:";
+	cin>>accname;
+	cout<<"\n";
+	cout<<"\t\tEnter the type of account:";
+	cin>>type;
+	cout<<"\n";
+	cout<<"\n Your account is successfully created\n";
+	cout<<"\t\t Hit \'0\' for goto main menu:";
+	cout<<"\n";
+	cin>>go;
+	if(go==0)
+	 {
+	 menu();
+	 }
+	else
+	return;
+}
+void bank:: deposit()
+{
+	int go;
+	cout<<"\n\t\t how much money you want to deposite";
+	cin>>dep;
+	cout<<"\n Your amount "<<dep<<" is successfully deposited";
+	ibalance+=dep;
+	cout<<"\n\t\t hit\'0\' for goto mainmenu:";
+	cout<<"\n";
+	cin>>go;
+	if(go==0)
+	 {
+	   menu();
+	 }
+}
+void bank:: check()
+{
+	int go;
+	cout<<"\t\t your current balance:"<<ibalance<<"\n";
+	cout<<"\n\t\t hit \'0\' for goto mainmenu:";
+	cout<<"\n";
+	cin>>go;
+	if(go==0)
+	 {
+	  menu();
+	 }
+}
+void bank::withdraw()
+{
+	int go;
+	cout<<"\n\t\tEnter the amount:\n";
+	cout<<"\t\t\t";
+	cin>>with;
+	if(with<ibalance)
+	{
+	ibalance-=with;
+	}
+	else
+	cout<<"\n\t Insufficient Balance\n";
+	cout<<"\n\t Remaining balance:"<<ibalance<<"\n\t";
+	cout<<"\n\t\t hit \ '0\ ' for goto mainmenu:";
+	cout<<"\n";
+	cin>>go;
+	if(go==0)
+	 {
+	   menu();
+	 }
+}
+void bank::info()
+{
+	int go;
+	cout<<"\n\t\t Name of the depositors:"<<name<<"\n";
+	cout<<"\t\tName of the account:"<<accname<<"\n";
+	cout<<"\t\t Type of account:"<<type<<"\n";
+	cout<<"\t\tAmount in your account:"<<ibalance;
+	cout<<"\n\t\t hit \ '0\' for goto mainmenu:";
+	cout<<"\n";
+	cin>>go;
+	if(go==0)
+	 {
+	   menu();
+	 }
+}
+void main()
+{
+ bank obj;
+ clrscr();
+ obj.intro();
+ obj.menu();
+ getch();
+}
+void bank :: intro()
+{
+	cout<<"\n\n\n\t\t\t\t   BANK";
+	cout<<"\n\n\t\t\t\tMANAGEMENT";
+	cout<<"\n\n\t\t\t\t  SYSTEM";
+	cout<<"\n\n\n\n\nMADE BY : VAISHAK KARTHIK \n\t  GOKUL DAS \n\t  SREEHARI N";
+	getch();
+	clrscr();
+}
